@@ -2,7 +2,7 @@
 // add_restaurant.php
 
 // Include the database configuration file
-include('config.php');
+include'config.php';
 
 // Check if the user is logged in and has the 'ADMIN' role
 session_start();

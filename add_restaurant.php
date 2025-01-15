@@ -1,8 +1,8 @@
 <?php
 // add_restaurant.php
+namespace Group2\Restaurant;
 
-// Include the database configuration file
-include'config.php';
+use Group2\Config\Database;
 
 // Check if the user is logged in and has the 'ADMIN' role
 session_start();

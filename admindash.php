@@ -147,26 +147,17 @@ if ($countResult2) {
 mysqli_close($conn);
 ?>
 <div class="center-table" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-        <table border="10" width="10%" id="projectable" style="background-color: white;">
-            <tr>
-                <th width="5%">Total Reservation</th>
-            </tr>
-            <tr>
-                <td><?php echo $totalReservations; ?></td>
-            </tr>
-        </table>
-        <a href="reservations.php"><button>Expand Reservation</button></a>
-    </div>
-   
-    <div class="center-table" style="position: absolute; top: 50%; left: 80%; transform: translate(-50%, -50%);">
-        <table border="10" width="30%" id="projectable" style="background-color: white;">
-            <tr>
-                <th width="5%">Total User</th>
-            </tr>
-            <tr>
-                <td><?php echo $totalUser; ?></td>
-            </tr>
-        </table>
+<table id="projectable">
+    <tr>
+        <th>Total Reservation</th>
+    </tr>
+</table>
+
+<table id="projectable">
+    <tr>
+        <th>Total User</th>
+    </tr>
+</table>
         <a href="userMgmt.php"><button>Expand User</button></a>
     </div>
          

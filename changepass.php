@@ -44,8 +44,8 @@
                 <span class="icon">
                     <ion-icon name="lock-closed"></ion-icon>
                     </span>
+		 <label for="userPwd" style="color: #ff6b81;">Password</label>
                 <input type="password" name="userPwd" required>
-                <label style="color: #ff6b81;">Password</label>
                 <br><br>
                 <button type="submit" class="btn">Change</button>
             </div>

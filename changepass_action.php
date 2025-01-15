@@ -1,5 +1,7 @@
 <?php
-include_once "config.php";
+use App\Config;
+global $conn;
+$conn = Config\conn;
 ?>
 <!DOCTYPE html>
 <head>

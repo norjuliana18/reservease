@@ -136,14 +136,6 @@ if ($countResult2) {
     echo "Error counting reservations: " . mysqli_error($conn);
 }
 
-
-
-
-
-
-    
-
-
 mysqli_close($conn);
 ?>
 <div class="center-table" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">

@@ -1,6 +1,9 @@
 name: CI php
 
-on: push
+on: 
+  push:
+    branches:
+      - main  # Adjust if you're working with a different branch
 
 jobs:
   super-lint:
@@ -8,14 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+
+      - name: Fetch all branches
+        run: git fetch --all
 
       - name: Super-Linter
         uses: super-linter/super-linter@v7.1.0
         env:
-          DEFAULT_BRANCH: main
-          name: Fetch all branches
-          run: git fetch --all
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-          
+          DEFAULT_BRANCH: main  # Ensure this matches your actual default branch name

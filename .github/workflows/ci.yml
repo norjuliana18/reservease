@@ -16,7 +16,7 @@ jobs:
       - name: Fetch all branches
         run: git fetch --all
 
-      - name: Super-Linter
+      - name: Run Super-Linter
         uses: super-linter/super-linter@v7.1.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

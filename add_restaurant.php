@@ -3,15 +3,16 @@ namespace Group2\Restaurant;
 
 use Group2\Config\Database;
 
-include_once 'config.php';  // Include the database connection
-
-// Check if the user is logged in and has the 'ADMIN' role
 session_start();
 if (isset($_SESSION['userRoles']) && $_SESSION['userRoles'] === 1) {
     // Redirect to a login page or show an error message
     header('Location: login.php');
     exit();
 }
+
+// Create a new instance of Database
+$db = new Database();
+$conn = $db->conn;  // Get the database connection
 
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -41,5 +42,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 // Close the database connection
-mysqli_close($conn);
+$db->closeConnection();
 ?>

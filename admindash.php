@@ -1,4 +1,4 @@
-<?php include 'config.php'; ?>  <!-- Include the database connection -->
+<?php include_once 'config.php'; ?>  <!-- Include the database connection -->
 
 <!DOCTYPE html>
 <html lang="en">

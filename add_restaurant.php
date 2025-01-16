@@ -1,31 +1,32 @@
 <?php
 // add_restaurant.php
 
-// Include the database configuration file
+// Include necessary files
 include_once 'config.php';
+include_once 'functions.php'; // New file to handle common operations like database and file upload
+
+// Start the session
+session_start();
 
 // Check if the user is logged in and has the 'ADMIN' role
-session_start();
-if (isset($_SESSION['userRoles']) && $_SESSION['userRoles'] === 1) {
-    // Redirect to a login page or show an error message
+if (!isAdmin()) {  // isAdmin() checks if the user is logged in and has the 'ADMIN' role
     header('Location: login.php');
     exit();
 }
 
-// Check if the form is submitted
+// Handle the form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Retrieve form data
-    $name = $_POST['name'];
-    $description = $_POST['description'];
-    $address = $_POST['address'];
-    $contact = $_POST['contact'];
+    // Retrieve form data and sanitize it
+    $name = sanitize_input($_POST['name']);
+    $description = sanitize_input($_POST['description']);
+    $address = sanitize_input($_POST['address']);
+    $contact = sanitize_input($_POST['contact']);
 
     // Handle image upload
-    $uploadDir = 'uploads/';  // Create a folder named 'uploads' in your project directory
-    $uploadFile = $uploadDir . basename($_FILES['restaurant_image']['name']);
+    $uploadFile = handleFileUpload($_FILES['restaurant_image']);
 
-    if (move_uploaded_file($_FILES['restaurant_image']['tmp_name'], $uploadFile)) {
-        // Perform the database insert
+    if ($uploadFile) {
+        // Perform the database insert using a function
         $query = "INSERT INTO restaurant (name, description, address, contact, created_at, updated_at, restaurant_image) 
                   VALUES ('$name', '$description', '$address', '$contact', NOW(), NOW(), '$uploadFile')";
 
